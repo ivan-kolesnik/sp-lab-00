@@ -16,22 +16,6 @@ void print_row(const char* type_name, size_t size, T min_v, T max_v)
               << std::endl;
 }
 
-// We would use print_type func because of simplicity and readability
-// while invoke it (see below), but there is a problem with displaying
-// ranges of "char" and "unsigned char" types as well as name (typeid)
-// for "long long" and "unsigned long long" types. To see results,
-// please uncomment lines below.
-
-/*template <typename T>
-void print_type()
-{
-    std::cout << std::setw(FW_TYPE) << typeid(T).name()
-              << std::setw(FW_SIZE) << sizeof(T)
-              << std::setw(FW_MIN_V) << std::numeric_limits<T>::min()
-              << std::numeric_limits<T>::max()
-              << std::endl;
-}*/
-
 int main() {
     std::cout << std::setw(FW_TYPE) << std::left << "TYPE"
               << std::setw(FW_SIZE) << "SIZE"
@@ -56,24 +40,6 @@ int main() {
     print_row("float", sizeof(float), std::numeric_limits<float>::min(), std::numeric_limits<float>::max());
     print_row("double", sizeof(double), std::numeric_limits<double>::min(), std::numeric_limits<double>::max());
     print_row("long double", sizeof(long double), std::numeric_limits<long double>::min(), std::numeric_limits<long double>::max());
-
-    /*print_type<bool>();
-    print_type<char>();
-    print_type<unsigned char>();
-    print_type<wchar_t>();
-    print_type<char16_t>();
-    print_type<char32_t>();
-    print_type<short>();
-    print_type<unsigned short>();
-    print_type<int>();
-    print_type<unsigned int>();
-    print_type<long>();
-    print_type<unsigned long>();
-    print_type<long long>();
-    print_type<unsigned long long>();
-    print_type<float>();
-    print_type<double>();
-    print_type<long double>();*/
 
     std::cout << "\nPress ANY enter button to exit...";
     std::cin.get();
